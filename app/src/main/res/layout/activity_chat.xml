@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/messageBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+
+
+        android:id="@+id/messageBox"
+        android:layout_width="285dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="Type a message"
+
+        android:background="@drawable/edt_background"
+        android:padding="10dp"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendbtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:background="@drawable/btn_background"
+        android:textColor="@color/white"
+        android:id="@+id/sendbtn"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:text="send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatRecyclerView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
