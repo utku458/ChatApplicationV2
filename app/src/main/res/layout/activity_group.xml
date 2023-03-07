@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".GroupActivity">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="0dp"
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+
 
         android:id="@+id/messageBox"
         android:layout_width="285dp"
