@@ -30,19 +30,18 @@ class Signup : AppCompatActivity() {
             var emailtxt= binding.emailtxt.text.toString()
             var passwordtxt = binding.passwordtxt.text.toString()
             var user = User(username,emailtxt,auth.currentUser?.uid)
+
             auth.createUserWithEmailAndPassword(emailtxt,passwordtxt).addOnCompleteListener {
                 if (it.isSuccessful){
 
 
 
                     mDbRef = FirebaseDatabase.getInstance().getReference()
-                    mDbRef.child("user").child(auth.currentUser?.uid.toString()).setValue(user)
+                    mDbRef.child("user").child(auth.currentUser?.uid.toString()).setValue(User(username,emailtxt,auth.currentUser?.uid))
 
 
-
-
-
-                    var intent = Intent(this,Login::class.java)
+                    var intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra("name",username)
                     val user = auth.currentUser
 
 

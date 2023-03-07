@@ -4,10 +4,10 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.Sampler.Value
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.constraintlayout.widget.Group
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatapplication.databinding.ActivityMainBinding
@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         auth=Firebase.auth
+
+        var name = intent.getStringExtra("name")
+
+
         mDbRef=FirebaseDatabase.getInstance().getReference()
         userList= ArrayList()
         adapter = UserAdapter(this, userList)
@@ -47,13 +51,15 @@ class MainActivity : AppCompatActivity() {
                 userList.clear()
                 for (postSnapshot in snapshot.children){
 
-                    val currentUser =postSnapshot.getValue(User::class.java)
+                    val currentUserr =postSnapshot.getValue(User::class.java)
 
-                    if (auth.currentUser!!.uid  != currentUser!!.uid){
-                        userList.add(currentUser!!)
+
+                    if (auth.currentUser!!.uid  != currentUserr!!.uid){
+                        userList.add(currentUserr!!)
+
 
                     }else{
-                        supportActionBar?.title= currentUser!!.name
+                        supportActionBar?.title= currentUserr!!.name
 
                     }
 
@@ -96,8 +102,8 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent(this@MainActivity,GroupActivity::class.java)
 
-            var name = intent.getStringExtra("name")
-            intent.putExtra("names",name)
+           // var name = intent.getStringExtra("name")
+
             startActivity(intent)
             return true
         }

@@ -80,7 +80,7 @@ class ChatActivity : AppCompatActivity() {
 
           //  mScrollView.fullScroll(ScrollView.FOCUS_DOWN)
 
-            binding.chatRecyclerView.scrollToPosition(messageList.size - 1)
+            binding.chatRecyclerView.scrollToPosition(messageList.size+1)
             val username = auth.currentUser!!.email.toString()
             val message = binding.messageBox.text.toString()
             val messageObject = Message(username,message,senderUid)

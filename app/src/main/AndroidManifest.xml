@@ -15,6 +15,9 @@
             android:name=".GroupActivity"
             android:exported="false" />
         <activity
+            android:name=".Group"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity

@@ -14,11 +14,15 @@ import com.google.firebase.ktx.Firebase
 class Login : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth:FirebaseAuth
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        var intent = intent
 
        supportActionBar?.hide()
         auth= Firebase.auth
@@ -59,5 +63,15 @@ class Login : AppCompatActivity() {
 
         }
 
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            var intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

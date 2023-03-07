@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/txtSentMessage"
         android:layout_width="wrap_content"
-        android:layout_marginStart="230dp"
+        android:layout_gravity="end"
+
         android:layout_height="wrap_content"
         android:textAlignment="textEnd"
         android:background="@drawable/btn_background"
         android:textColor="@color/white"
 
 
-        android:padding="8dp"
+        android:padding="16dp"
         android:text="This is sent message"
         android:textSize="16sp"
         tools:layout_editor_absoluteX="126dp"

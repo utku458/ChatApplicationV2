@@ -44,11 +44,11 @@ class GroupAdapter(val context:Context , val messageList:ArrayList<Message>): Re
 
         val list = messageList.get(position)
         val currentMessage  = messageList[position]
-       /* if (FirebaseAuth.getInstance().currentUser!!.uid.equals(currentMessage.senderId)){
-            return ITEM_SENT
-        }else{
-            return  ITEM_RECEIVE
-        }*/
+        /* if (FirebaseAuth.getInstance().currentUser!!.uid.equals(currentMessage.senderId)){
+             return ITEM_SENT
+         }else{
+             return  ITEM_RECEIVE
+         }*/
 
         if (list.username==FirebaseAuth.getInstance().currentUser?.email.toString())
         {

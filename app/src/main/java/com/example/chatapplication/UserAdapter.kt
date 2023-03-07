@@ -29,7 +29,11 @@ class UserAdapter(val context :Context, val userList:ArrayList<User>): RecyclerV
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = userList[position]
-        holder.textname.setText(currentUser.name)
+
+
+            holder.textname.setText(currentUser.name)
+
+
 
         holder.itemView.setOnClickListener {
             val intent =Intent(context,ChatActivity::class.java)

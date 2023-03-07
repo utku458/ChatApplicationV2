@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/txtReceiveMessage"
@@ -15,7 +16,7 @@
         android:background="@drawable/edt_background"
 
         android:text="This is a receive message"
-        android:padding="8dp"
+        android:padding="16dp"
 
         android:textSize="16sp"
         tools:layout_editor_absoluteX="126dp"
