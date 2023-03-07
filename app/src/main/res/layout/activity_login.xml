@@ -26,14 +26,12 @@
         android:id="@+id/loginbtn"
         android:layout_width="112dp"
         android:layout_height="49dp"
-        android:layout_marginStart="67dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="72dp"
         android:background="@drawable/btn_background"
         android:text="login"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/signupbtn"
         app:layout_constraintTop_toBottomOf="@+id/passwordtxt" />
 
     <EditText
@@ -85,11 +83,9 @@
 
         android:layout_marginStart="60dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="67dp"
         android:background="@drawable/btn_background"
         android:text="Signup"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/loginbtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordtxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

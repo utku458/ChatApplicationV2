@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         adapter = UserAdapter(this, userList)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(getColor(R.color.orange)))
 
+
         binding.userRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.userRecyclerView.adapter= adapter
 
@@ -45,10 +46,12 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
                 for (postSnapshot in snapshot.children){
+
                     val currentUser =postSnapshot.getValue(User::class.java)
 
                     if (auth.currentUser!!.uid  != currentUser!!.uid){
                         userList.add(currentUser!!)
+
                     }else{
                         supportActionBar?.title= currentUser!!.name
 
@@ -82,10 +85,23 @@ class MainActivity : AppCompatActivity() {
             auth.signOut()
             var intent = Intent(this@MainActivity,Login::class.java)
             finish()
+
             startActivity(intent)
 
             return true
         }
+
+
+       else if (item.itemId==R.id.groupChatOptionsMenu){
+
+            var intent = Intent(this@MainActivity,GroupActivity::class.java)
+
+            var name = intent.getStringExtra("name")
+            intent.putExtra("names",name)
+            startActivity(intent)
+            return true
+        }
         return true
+
     }
 }

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:padding="9dp"
 
         tools:layout_editor_absoluteX="151dp"

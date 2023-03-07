@@ -3,11 +3,15 @@ package com.example.chatapplication
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatapplication.databinding.ActivityChatBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
 private lateinit var binding: ActivityChatBinding
 
@@ -15,6 +19,9 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageAdapter : MessageAdapter
     private lateinit var messageList:ArrayList<Message>
     private lateinit var mDbRef : DatabaseReference
+    lateinit var mScrollView:ScrollView
+
+    private lateinit var auth: FirebaseAuth
     var receiverRoom : String? = null
     var senderRoom : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +30,11 @@ class ChatActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val intent = intent
+
+
+
+
+        auth=Firebase.auth
         mDbRef = FirebaseDatabase.getInstance().getReference()
         messageList= ArrayList()
         messageAdapter= MessageAdapter(this,messageList)
@@ -45,6 +57,12 @@ class ChatActivity : AppCompatActivity() {
                     val message = postSnapshot.getValue(Message::class.java)
                     messageList.add(message!!)
 
+                           // mScrollView.fullScroll(ScrollView.FOCUS_DOWN)
+
+
+
+
+
                 }
                 messageAdapter.notifyDataSetChanged()
 
@@ -59,8 +77,13 @@ class ChatActivity : AppCompatActivity() {
 
         binding.sendbtn.setOnClickListener {
 
+
+          //  mScrollView.fullScroll(ScrollView.FOCUS_DOWN)
+
+            binding.chatRecyclerView.scrollToPosition(messageList.size - 1)
+            val username = auth.currentUser!!.email.toString()
             val message = binding.messageBox.text.toString()
-            val messageObject = Message(message,senderUid)
+            val messageObject = Message(username,message,senderUid)
 
             mDbRef.child("chats").child(senderRoom!!).child("messages").push()
                 .setValue(messageObject).addOnSuccessListener {
